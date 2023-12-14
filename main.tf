@@ -11,5 +11,5 @@ module "front" {
   subnets            = [var.subnet1, var.subnet2, var.subnet3]
   front_port        ="80"
   front_image       ="front"
-  front_image_tag   ="14"
+  front_image_tag   ="15"
 }
