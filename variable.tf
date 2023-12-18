@@ -22,3 +22,13 @@ variable "subnet3" {
   description = "ID du troisième sous-réseau"
   type        = string
 }
+
+variable "dynamodb_arn" {
+  description = "Arn of the DynamoDB to use"
+  type        = string
+}
+
+variable "table_name" {
+  description = "Table name of the DynamoDB to use"
+  type        = string
+}
