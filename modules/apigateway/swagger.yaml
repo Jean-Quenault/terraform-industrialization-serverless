@@ -24,7 +24,7 @@ paths:
       x-amazon-apigateway-integration:
         type: "aws_proxy"
         httpMethod: "POST"
-        uri: "arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:980377181750:function:getStatus/invocations"
+        uri: "${get_status_prod_lambda_uri}"
         responses:
           default:
             statusCode: "200"
@@ -47,7 +47,7 @@ paths:
       x-amazon-apigateway-integration:
         type: "aws_proxy"
         httpMethod: "POST"
-        uri: "arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:980377181750:function:getUsers/invocations"
+        uri: "${get_users_prod_lambda_uri}"
         responses:
           default:
             statusCode: "200"
@@ -73,7 +73,7 @@ paths:
       x-amazon-apigateway-integration:
         type: "aws_proxy"
         httpMethod: "POST"
-        uri: "arn:aws:apigateway:eu-west-3:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-3:980377181750:function:postUsers/invocations"
+        uri: "${post_users_prod_lambda_uri}"
         responses:
           default:
             statusCode: "200"
