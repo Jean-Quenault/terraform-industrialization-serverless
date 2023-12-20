@@ -3,6 +3,9 @@ data "template_file" "api_swagger" {
 
   vars = {
     backend_url = var.backend_url
+    get_status_prod_lambda_uri = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${aws_lambda_function.get_status_prod.arn}/invocations"
+    get_users_prod_lambda_uri = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${aws_lambda_function.get_users_prod.arn}/invocations"
+    post_users_prod_lambda_uri = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${aws_lambda_function.post_users_prod.arn}/invocations"
   }
 }
 
