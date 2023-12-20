@@ -1,8 +1,8 @@
 # getStatus IAM settings
 
-resource "aws_iam_role" "get_status" {
-  name = "get_status"
-  description = "Role for get_status lambda"
+resource "aws_iam_role" "get_status_prod" {
+  name = "get_status_prod"
+  description = "Role for get_status_prod lambda"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -18,9 +18,9 @@ resource "aws_iam_role" "get_status" {
   })
 }
 
-resource "aws_iam_policy" "get_status" {
-  name        = "get_status"
-  description = "Policy for get_status role only for checking connection to DynamoDB is ok"
+resource "aws_iam_policy" "get_status_prod" {
+  name        = "get_status_prod"
+  description = "Policy for get_status_prod role only for checking connection to DynamoDB is ok"
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -46,9 +46,9 @@ resource "aws_iam_policy" "get_status" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "get_status" {
-  role       = aws_iam_role.get_status.name
-  policy_arn = aws_iam_policy.get_status.arn
+resource "aws_iam_role_policy_attachment" "get_status_prod" {
+  role       = aws_iam_role.get_status_prod.name
+  policy_arn = aws_iam_policy.get_status_prod.arn
 }
 
 
@@ -62,9 +62,9 @@ resource "aws_iam_role_policy_attachment" "get_status" {
 
 # getUsers IAM settings
 
-resource "aws_iam_role" "get_users" {
-  name = "get_users"
-  description = "Role for get_users lambda"
+resource "aws_iam_role" "get_users_prod" {
+  name = "get_users_prod"
+  description = "Role for get_users_prod lambda"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -80,9 +80,9 @@ resource "aws_iam_role" "get_users" {
   })
 }
 
-resource "aws_iam_policy" "get_users" {
-  name        = "get_users"
-  description = "Policy for get_users role to connect to DynamoDB and to read data inside"
+resource "aws_iam_policy" "get_users_prod" {
+  name        = "get_users_prod"
+  description = "Policy for get_users_prod role to connect to DynamoDB and to read data inside"
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -111,9 +111,9 @@ resource "aws_iam_policy" "get_users" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "get_users" {
-  role       = aws_iam_role.get_users.name
-  policy_arn = aws_iam_policy.get_users.arn
+resource "aws_iam_role_policy_attachment" "get_users_prod" {
+  role       = aws_iam_role.get_users_prod.name
+  policy_arn = aws_iam_policy.get_users_prod.arn
 }
 
 
@@ -125,9 +125,9 @@ resource "aws_iam_role_policy_attachment" "get_users" {
 
 # postUsers IAM settings
 
-resource "aws_iam_role" "post_users" {
-  name = "post_users"
-  description = "Role for post_users lambda"
+resource "aws_iam_role" "post_users_prod" {
+  name = "post_users_prod"
+  description = "Role for post_users_prod lambda"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -143,9 +143,9 @@ resource "aws_iam_role" "post_users" {
   })
 }
 
-resource "aws_iam_policy" "post_users" {
-  name        = "post_users"
-  description = "Policy for post_users role to connect to DynamoDB and to write data inside"
+resource "aws_iam_policy" "post_users_prod" {
+  name        = "post_users_prod"
+  description = "Policy for post_users_prod role to connect to DynamoDB and to write data inside"
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -172,7 +172,7 @@ resource "aws_iam_policy" "post_users" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "post_users" {
-  role       = aws_iam_role.post_users.name
-  policy_arn = aws_iam_policy.post_users.arn
+resource "aws_iam_role_policy_attachment" "post_users_prod" {
+  role       = aws_iam_role.post_users_prod.name
+  policy_arn = aws_iam_policy.post_users_prod.arn
 }

@@ -4,8 +4,8 @@ info:
   description: "API to route front-end app to lambda, in the aim to read and write\
     \ on DynamoDB."
   version: "2023-12-19T15:50:38Z"
-  title: "DynamodbApi"
-host: "backend.jeanops.net"
+  title: "api"
+host: "${backend_url}"
 schemes:
 - "https"
 paths:
