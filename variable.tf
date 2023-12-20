@@ -32,3 +32,8 @@ variable "table_name" {
   description = "Table name of the DynamoDB to use"
   type        = string
 }
+
+variable "backend_url" {
+  description = "URL desired for the backend"
+  type        = string
+}
