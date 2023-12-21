@@ -1,5 +1,5 @@
-resource "aws_lambda_function" "PostUsersProd" {
-  function_name = "PostUsersProd"
+resource "aws_lambda_function" "postUsersProd" {
+  function_name = "postUsersProd"
   role          = aws_iam_role.post_users_prod.arn
   handler       = "lambda_function.lambda_handler"
 
