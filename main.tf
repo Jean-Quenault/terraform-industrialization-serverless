@@ -20,6 +20,9 @@ module "apigateway" {
   table_name = var.table_name
   dynamodb_arn = var.dynamodb_arn
   backend_url = var.backend_url
+  get_status_prod_lambda_arn = aws_lambda_function.getStatusProd.arn
+  get_users_prod_lambda_arn  = aws_lambda_function.getUsersProd.arn
+  post_users_prod_lambda_arn = aws_lambda_function.postUsersProd.arn
 
 }
 
