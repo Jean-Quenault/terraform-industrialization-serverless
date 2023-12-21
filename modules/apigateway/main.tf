@@ -18,9 +18,23 @@ resource "aws_api_gateway_rest_api" "api" {
   }
 }
 
+resource "aws_api_gateway_stage" "prod_stage" {
+  stage_name    = "prod"
+  rest_api_id   = aws_api_gateway_rest_api.api.id
+  deployment_id = aws_api_gateway_deployment.prod.id
+}
+
+
 resource "aws_api_gateway_deployment" "prod" {
   rest_api_id = aws_api_gateway_rest_api.api.id
   stage_name  = "prod"
+}
+
+resource "aws_api_gateway_base_path_mapping" "mapping" {
+  api_id      = aws_api_gateway_rest_api.api.id
+  stage_name  = aws_api_gateway_stage.prod_stage.prod
+  domain_name = aws_api_gateway_domain_name.backend_domain.domain_name
+
 }
 
 data "aws_acm_certificate" "certificate_backend_domain" {
@@ -31,13 +45,6 @@ data "aws_acm_certificate" "certificate_backend_domain" {
 resource "aws_api_gateway_domain_name" "backend_domain" {
   domain_name              = "backend.jeanops.net"
   certificate_arn          = data.aws_acm_certificate.certificate_backend_domain.arn
-
-}
-
-resource "aws_api_gateway_base_path_mapping" "mapping" {
-  api_id      = aws_api_gateway_rest_api.api.id
-  stage_name  = aws_api_gateway_stage.mystage.prod
-  domain_name = aws_api_gateway_domain_name.backend_domain.domain_name
 
 }
 
