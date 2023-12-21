@@ -5,7 +5,7 @@ resource "aws_lambda_function" "getStatusProd" {
 
   source_code_hash = filebase64sha256("${path.module}/get_status_prod/get_status_prod.zip")
   runtime          = "python3.11"
-  filename         = "${path.module}get_status_prod/get_status_prod.zip"
+  filename         = "${path.module}/get_status_prod/get_status_prod.zip"
 
   environment {
     variables = {

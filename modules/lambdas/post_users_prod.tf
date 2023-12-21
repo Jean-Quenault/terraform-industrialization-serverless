@@ -5,7 +5,7 @@ resource "aws_lambda_function" "postUsersProd" {
 
   source_code_hash = filebase64sha256("${path.module}/post_users_prod/post_users_prod.zip")
   runtime          = "python3.11"
-  filename         = "${path.module}post_users_prod/post_users_prod.zip"
+  filename         = "${path.module}/post_users_prod/post_users_prod.zip"
 
   environment {
     variables = {
