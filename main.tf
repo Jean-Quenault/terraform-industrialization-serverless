@@ -13,3 +13,19 @@ module "front" {
   front_image       ="front"
   front_image_tag   ="15"
 }
+
+module "apigateway" {
+  source = "./modules/apigateway"
+  region = var.region
+  table_name = var.table_name
+  dynamodb_arn = var.dynamodb_arn
+  backend_url = var.backend_url
+
+}
+
+module "lambdas" {
+  source = "./modules/lambdas"
+  region = var.region
+  table_name = var.table_name
+  dynamodb_arn = var.dynamodb_arn
+}
