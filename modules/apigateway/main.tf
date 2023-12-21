@@ -28,23 +28,28 @@ data "aws_acm_certificate" "certificate_backend_domain" {
   statuses = ["ISSUED"]
 }
 
-resource "aws_api_gateway_domain_name" "backend" {
+resource "aws_api_gateway_domain_name" "backend_domain" {
   domain_name              = "backend.jeanops.net"
-  certificate_arn          = aws_acm_certificate.certificate_backend_domain.arn
+  certificate_arn          = data.aws_acm_certificate.certificate_backend_domain.arn
 
 }
 
 resource "aws_api_gateway_base_path_mapping" "mapping" {
   api_id      = aws_api_gateway_rest_api.api.id
   stage_name  = aws_api_gateway_stage.mystage.prod
-  domain_name = aws_api_gateway_domain_name.backend.domain_name
+  domain_name = aws_api_gateway_domain_name.backend_domain.domain_name
 
 }
+
+data "aws_route53_zone" "api_dns" {
+  name = "backend.jeanops.net"
+}
+
 
 resource "aws_route53_record" "api_dns" {
   zone_id = data.aws_route53_zone.api_dns.id
   name    = "backend.jeanops.net"
   type    = "CNAME"
-  records = [aws_api_gateway_domain_name.my_domain.cloudfront_domain_name]
+  records = [aws_api_gateway_domain_name.backend_domain.cloudfront_domain_name]
   ttl     = "300"
 }
