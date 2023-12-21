@@ -2,6 +2,11 @@ provider "aws" {
     region = "eu-west-3"
 }
 
+provider "aws" {
+  region = "us-east-1"
+  alias  = "us-east-1"
+}
+
 module "front" {
   source            = "./modules/front"
   vpc_id            = var.vpc_id
