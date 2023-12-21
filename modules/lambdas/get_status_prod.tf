@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "getStatusProd" {
   function_name = "getStatusProd"
-  role          = aws_iam_role.lambda_dynamodb_role.arn
+  role          = aws_iam_role.get_status_prod.arn
   handler       = "lambda_function.lambda_handler"
 
   source_code_hash = filebase64sha256("get_status_prod/get_status_prod.zip")
@@ -13,3 +13,4 @@ resource "aws_lambda_function" "getStatusProd" {
     }
   }
 }
+
