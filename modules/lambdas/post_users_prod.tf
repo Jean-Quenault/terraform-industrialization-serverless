@@ -3,9 +3,9 @@ resource "aws_lambda_function" "PostUsersProd" {
   role          = aws_iam_role.post_users_prod.arn
   handler       = "lambda_function.lambda_handler"
 
-  source_code_hash = filebase64sha256("post_users_prod/post_users_prod.zip")
+  source_code_hash = filebase64sha256("${path.module}/post_users_prod/post_users_prod.zip")
   runtime          = "python3.11"
-  filename         = "post_users_prod/post_users_prod.zip"
+  filename         = "${path.module}post_users_prod/post_users_prod.zip"
 
   environment {
     variables = {
