@@ -38,7 +38,6 @@ resource "aws_api_gateway_base_path_mapping" "mapping" {
 }
 
 data "aws_acm_certificate" "certificate_backend_domain" {
-  provider = aws.us-east-1
   domain   = "backend.jeanops.net"
   statuses = ["ISSUED"]
 }
@@ -59,13 +58,4 @@ resource "aws_route53_record" "api_dns" {
   type    = "CNAME"
   records = [aws_api_gateway_domain_name.backend_domain.cloudfront_domain_name]
   ttl     = "300"
-}
-
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
 }

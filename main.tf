@@ -28,12 +28,6 @@ module "apigateway" {
   get_status_prod_lambda_arn = module.lambdas.get_status_prod_lambda_arn
   get_users_prod_lambda_arn  = module.lambdas.get_users_prod_lambda_arn
   post_users_prod_lambda_arn = module.lambdas.post_users_prod_lambda_arn
-
-  providers = {
-    aws = aws
-    aws.us-east-1 = aws.us-east-1
-  }
-
 }
 
 module "lambdas" {
