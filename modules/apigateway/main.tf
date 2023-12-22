@@ -38,7 +38,7 @@ resource "aws_api_gateway_base_path_mapping" "mapping" {
 }
 
 data "aws_acm_certificate" "certificate_backend_domain" {
-  provider = aws.us-east-1
+  provider = "aws.acm"
   domain   = "backend.jeanops.net"
   statuses = ["ISSUED"]
 }
