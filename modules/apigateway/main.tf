@@ -60,3 +60,12 @@ resource "aws_route53_record" "api_dns" {
   records = [aws_api_gateway_domain_name.backend_domain.cloudfront_domain_name]
   ttl     = "300"
 }
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
