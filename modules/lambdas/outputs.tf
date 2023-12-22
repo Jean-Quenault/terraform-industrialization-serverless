@@ -1,11 +1,11 @@
 output "get_status_prod_lambda_arn" {
-  value = aws_lambda_function.getStatusProd.arn
+  value = aws_lambda_function.get_status_prod.arn
 }
 
 output "get_users_prod_lambda_arn" {
-  value = aws_lambda_function.getUsersProd.arn
+  value = aws_lambda_function.get_users_prod.arn
 }
 
 output "post_users_prod_lambda_arn" {
-  value = aws_lambda_function.postUsersProd.arn
+  value = aws_lambda_function.post_users_prod.arn
 }
