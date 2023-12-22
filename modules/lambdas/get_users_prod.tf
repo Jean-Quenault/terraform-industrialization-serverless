@@ -9,7 +9,7 @@ resource "aws_lambda_function" "get_users_prod" {
 
   environment {
     variables = {
-      TABLE_NAME = var.table_name
+      table_name = var.table_name
     }
   }
 }
