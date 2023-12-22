@@ -18,16 +18,22 @@ resource "aws_api_gateway_rest_api" "api" {
   }
 }
 
+resource "aws_api_gateway_deployment" "prod" {
+  rest_api_id = aws_api_gateway_rest_api.api.id
+
+  triggers = {
+    redeployment = sha1(jsonencode(aws_api_gateway_rest_api.api.body))
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 resource "aws_api_gateway_stage" "prod_stage" {
   stage_name    = "prod"
   rest_api_id   = aws_api_gateway_rest_api.api.id
   deployment_id = aws_api_gateway_deployment.prod.id
-}
-
-
-resource "aws_api_gateway_deployment" "prod" {
-  depends_on = [aws_api_gateway_stage.prod_stage]
-  rest_api_id = aws_api_gateway_rest_api.api.id
 }
 
 resource "aws_api_gateway_base_path_mapping" "mapping" {
