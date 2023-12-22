@@ -1,7 +1,7 @@
-resource "aws_lambda_function" "getStatusProd" {
-  function_name = "getStatusProd"
+resource "aws_lambda_function" "get_status_prod" {
+  function_name = "get_status_prod"
   role          = aws_iam_role.get_status_prod.arn
-  handler       = "lambda_function.lambda_handler"
+  handler       = "get_status_prod.lambda_handler"
 
   source_code_hash = filebase64sha256("${path.module}/get_status_prod/get_status_prod.zip")
   runtime          = "python3.11"

@@ -1,7 +1,7 @@
-resource "aws_lambda_function" "postUsersProd" {
-  function_name = "postUsersProd"
+resource "aws_lambda_function" "post_users_prod" {
+  function_name = "post_users_prod"
   role          = aws_iam_role.post_users_prod.arn
-  handler       = "lambda_function.lambda_handler"
+  handler       = "post_users_prod.lambda_handler"
 
   source_code_hash = filebase64sha256("${path.module}/post_users_prod/post_users_prod.zip")
   runtime          = "python3.11"
