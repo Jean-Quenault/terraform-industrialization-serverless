@@ -2,11 +2,6 @@ provider "aws" {
     region = "eu-west-3"
 }
 
-provider "aws" {
-  alias = "acm"
-  region = "us-east-1"
-}
-
 module "front" {
   source            = "./modules/front"
   vpc_id            = var.vpc_id
@@ -28,6 +23,7 @@ module "apigateway" {
   get_status_prod_lambda_arn = module.lambdas.get_status_prod_lambda_arn
   get_users_prod_lambda_arn  = module.lambdas.get_users_prod_lambda_arn
   post_users_prod_lambda_arn = module.lambdas.post_users_prod_lambda_arn
+
 }
 
 module "lambdas" {
