@@ -50,7 +50,7 @@ resource "aws_api_gateway_domain_name" "backend_domain" {
 resource "aws_lambda_permission" "api_gateway_permission_get_status_prod" {
   statement_id  = "AllowAPIGatewayInvokeGetStatusProd"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.get_status_prod.function_name
+  function_name = module.lambdas.aws_lambda_function.get_status_prod.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/status/GET"
 }
@@ -58,7 +58,7 @@ resource "aws_lambda_permission" "api_gateway_permission_get_status_prod" {
 resource "aws_lambda_permission" "api_gateway_permission_get_users_prod" {
   statement_id  = "AllowAPIGatewayInvokeUsersGetUsersProd"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.get_users_prod.function_name
+  function_name = module.lambdas.aws_lambda_function.get_users_prod.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/users/GET"
 }
@@ -66,7 +66,7 @@ resource "aws_lambda_permission" "api_gateway_permission_get_users_prod" {
 resource "aws_lambda_permission" "api_gateway_permission_post_users_prod" {
   statement_id  = "AllowAPIGatewayInvokeUsersPost"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.post_users_prod.function_name
+  function_name = module.lambdas.aws_lambda_function.post_users_prod.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/users/POST"
 }

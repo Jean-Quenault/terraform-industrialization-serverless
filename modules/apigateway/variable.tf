@@ -32,3 +32,4 @@ variable "post_users_prod_lambda_arn" {
   description = "ARN of Lambda functionpostUsersProd"
   type        = string
 }
+
