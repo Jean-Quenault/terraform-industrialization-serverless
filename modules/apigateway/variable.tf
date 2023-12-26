@@ -33,3 +33,17 @@ variable "post_users_prod_lambda_arn" {
   type        = string
 }
 
+variable "get_status_prod_function_name" {
+  description = "Function name of the get_status_prod lambda"
+  type        = string
+}
+
+variable "get_users_prod_function_name" {
+  description = "Function name of the get_users_prod lambda"
+  type        = string
+}
+
+variable "post_users_prod_function_name" {
+  description = "Function name of the post_users_prod lambda"
+  type        = string
+}

@@ -23,7 +23,9 @@ module "apigateway" {
   get_status_prod_lambda_arn = module.lambdas.get_status_prod_lambda_arn
   get_users_prod_lambda_arn  = module.lambdas.get_users_prod_lambda_arn
   post_users_prod_lambda_arn = module.lambdas.post_users_prod_lambda_arn
-
+  get_status_prod_function_name = module.lambdas.get_status_prod_function_name
+  get_users_prod_function_name = module.lambdas.get_users_prod_function_name
+  post_users_prod_function_name = module.lambdas.post_users_prod_function_name
 }
 
 module "lambdas" {
