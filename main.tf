@@ -33,5 +33,4 @@ module "lambdas" {
   region = var.region
   table_name = var.table_name
   dynamodb_arn = var.dynamodb_arn
-
 }
