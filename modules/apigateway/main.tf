@@ -52,7 +52,7 @@ resource "aws_lambda_permission" "api_gateway_permission_get_status_prod" {
   action        = "lambda:InvokeFunction"
   function_name = var.get_status_prod_function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/status/GET"
+  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/GET/status"
 }
 
 resource "aws_lambda_permission" "api_gateway_permission_get_users_prod" {
@@ -60,7 +60,7 @@ resource "aws_lambda_permission" "api_gateway_permission_get_users_prod" {
   action        = "lambda:InvokeFunction"
   function_name = var.get_users_prod_function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/users/GET"
+  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/GET/users"
 }
 
 resource "aws_lambda_permission" "api_gateway_permission_post_users_prod" {
@@ -68,5 +68,5 @@ resource "aws_lambda_permission" "api_gateway_permission_post_users_prod" {
   action        = "lambda:InvokeFunction"
   function_name = var.post_users_prod_function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/users/POST"
+  source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/POST/users"
 }
