@@ -39,7 +39,7 @@ terraform {
   backend "s3" {
     bucket         = "terraform-state-file-front"
     key            = "dev/terraform.tfstate"
-    region         = var.region
+    region         = "eu-west-3"
     encrypt        = true
     dynamodb_table = "terraform-state-file-front-db"
   }
