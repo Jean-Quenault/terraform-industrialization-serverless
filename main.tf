@@ -34,3 +34,13 @@ module "lambdas" {
   table_name = var.table_name
   dynamodb_arn = var.dynamodb_arn
 }
+
+terraform {
+  backend "s3" {
+    bucket         = "terraform-state-file-front"
+    key            = "dev/terraform.tfstate"
+    region         = var.region
+    encrypt        = true
+    dynamodb_table = "terraform-state-file-front-db"
+  }
+}
